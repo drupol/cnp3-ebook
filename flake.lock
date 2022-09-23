@@ -1,0 +1,94 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1664266718,
+        "narHash": "sha256-j2okM1ghRbJY1Akxpu/pkuxIvT9FSycLwUxAYUOr6PI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2e977bf954e84a981b15ff4d2442802ce9b675f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1664304557,
+        "narHash": "sha256-K1FZFYIjwaJned1AcDsuC1m5LBHfCqJyUEIKHqndp00=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "859516a1a5af797ab11ac7597aa77a670877d87f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-pydata-sphinx-theme": {
+      "locked": {
+        "lastModified": 1656818787,
+        "narHash": "sha256-hA4bxICiOpRzmAscnMPbaBJIKNUVDEbf0wg8q2iwDOs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "19d31fc041778c7d969b04b18b1e3cb91a804c6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "19d31fc041778c7d969b04b18b1e3cb91a804c6b",
+        "type": "github"
+      }
+    },
+    "nixpkgs-sphinxcontrib-mscgen": {
+      "locked": {
+        "lastModified": 1664008638,
+        "narHash": "sha256-Rdw42Vf3Ye8YQo6xnrFmG9njA5iMLvf6Tf3ADFYRI7w=",
+        "owner": "drupol",
+        "repo": "nixpkgs",
+        "rev": "a615bbdf00c2c39b6c0b8b8cc446b7ad605ae5b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drupol",
+        "ref": "add-sphinx-contrib-mscgen",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-pydata-sphinx-theme": "nixpkgs-pydata-sphinx-theme",
+        "nixpkgs-sphinxcontrib-mscgen": "nixpkgs-sphinxcontrib-mscgen"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
