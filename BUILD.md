@@ -121,3 +121,81 @@ To update the localization strings, you will need to install the Python ``sphinx
    ```
    sphinx-intl update
    ```
+
+## Building the e-book with Nix
+
+There are many Linux distributions and many different ways to install the
+dependencies to build the book. If someone wants to contribute to this project,
+they either need to be using the same operating system or they need to spend
+time figuring out how to install the required dependencies, if they exists.
+
+Given that, the best way to build the book is using the
+[Nix](https://nixos.org/nix/) package manager.
+
+Nix is a tool that takes a unique approach to package management and system
+configuration. Nix is platform-agnostic: it runs on any Linux distro and macOS.
+Nix can therefore be used as a truly universal package manager.
+
+On top of that, Nix will ensure reproducibility by pinning the dependencies
+needed to build the document in the `flake.lock` file. As long as this file stay
+the same, we have the guarantee that anyone will be able to build the document
+and it will be the same "*byte-per-byte*" on any computer running the same
+procedure.
+
+After [installing Nix](https://nixos.org/download.html), if
+you're using a non-NixOS operating system, you need to install `nix` in
+your environment following the steps described on the
+[wiki](https://nixos.wiki/wiki/Flakes#Enable_flakes) and enable the upcoming
+Nix `commands` and `flake` support.
+
+To build the document, multiple options are existing:
+
+### Building the document remotely
+
+Once Nix is installed, just run the following command to build a local version
+of the book, using remote sources:
+
+```
+nix build github:cnp3/ebook#pdf -o cnp3.pdf
+```
+
+Open it by doing:
+
+```shell
+xdg-open cnp3.pdf
+```
+
+### Building the document locally
+
+Once Nix is installed and this repository cloned, just run the following command
+in the project's directory:
+
+```
+nix build .#pdf -o cnp3.pdf
+```
+
+This command will build the book using the repository you cloned. This is a good
+way to test if the changes you want to make are correctly rendered in the book.
+
+Open it by doing:
+
+```shell
+xdg-open cnp3.pdf
+```
+
+### Entering a development environment
+
+To enter a development shell containing all the required dependencies to build
+the book, run:
+
+```shell
+nix develop
+```
+
+From there, you'll be able to manually build the book:
+
+```shell
+sphinx-build -M latexpdf . tmp
+```
+
+Once you exit the shell, the build tools won't be available anymore.
