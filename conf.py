@@ -34,7 +34,7 @@ extensions = ['sphinx.ext.todo', 'sphinxcontrib.mscgen', 'sphinx.ext.graphviz', 
 #extensions = ['sphinx.ext.todo', 'sphinx.ext.pngmath', 'sphinxcontrib.mscgen','sphinx.ext.graphviz','sphinxcontrib.tikz']
 #mscgen
 mscgen_args=['-T eps']
-mscgen_epstopdf='/usr/bin/epstopdf'
+mscgen_epstopdf='epstopdf'
 mscgen_epstopdf_args=['--debug']
 
 # Localisation
