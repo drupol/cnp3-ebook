@@ -5,11 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-pydata-sphinx-theme.url = "github:NixOS/nixpkgs?rev=19d31fc041778c7d969b04b18b1e3cb91a804c6b";
-    nixpkgs-sphinxcontrib-mscgen.url = "github:drupol/nixpkgs/add-sphinx-contrib-mscgen";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, nixpkgs-pydata-sphinx-theme, nixpkgs-sphinxcontrib-mscgen, ... }@inputs:
+  outputs = { self, nixpkgs, flake-utils, nixpkgs-pydata-sphinx-theme, ... }@inputs:
     with flake-utils.lib; eachSystem allSystems (system:
       let
         version = self.shortRev or self.lastModifiedDate;
@@ -23,13 +22,6 @@
           })
           (final: prev: {
             pydata-sphinx-theme = import inputs.nixpkgs-pydata-sphinx-theme {
-              inherit (final) config;
-              system = "${prev.system}";
-            };
-          })
-          # Remove this when https://github.com/NixOS/nixpkgs/pull/192650 lands
-          (final: prev: {
-            sphinxcontrib-mscgen = import inputs.nixpkgs-sphinxcontrib-mscgen {
               inherit (final) config;
               system = "${prev.system}";
             };
@@ -97,7 +89,7 @@
             # Custom derivations
             tex
             sphinx
-            (pkgs.sphinxcontrib-mscgen.python3Packages.sphinxcontrib-mscgen.overrideAttrs (attrs: {
+            (pkgs.python3Packages.sphinxcontrib-mscgen.overrideAttrs (attrs: {
               inherit sphinx;
               patches = (attrs.patches or []) ++ [
                 # https://github.com/sphinx-contrib/mscgen/commit/26bc79a8b6e16093411092775d514cda6354ce6e
