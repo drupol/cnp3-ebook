@@ -1,0 +1,77 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1672057183,
+        "narHash": "sha256-GN7/10DNNvs1FPj9tlZA2qgNdFuYKKuS3qlHTqAxasQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b139e44d78c36c69bcbb825b20dbfa51e7738347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1672090770,
+        "narHash": "sha256-PMX0QkhYR+77LzWvzMqVgj3ShYhu+M6QwGfwIuXIPH4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "70c476bbf7e1e33d771837bab6c50fca4d73c7f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-pydata-sphinx-theme": {
+      "locked": {
+        "lastModified": 1656818787,
+        "narHash": "sha256-hA4bxICiOpRzmAscnMPbaBJIKNUVDEbf0wg8q2iwDOs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "19d31fc041778c7d969b04b18b1e3cb91a804c6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "19d31fc041778c7d969b04b18b1e3cb91a804c6b",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-pydata-sphinx-theme": "nixpkgs-pydata-sphinx-theme"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
