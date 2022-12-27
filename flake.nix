@@ -5,6 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     # Remove this when new version of https://github.com/executablebooks/sphinx-book-theme is out and added in nixpkgs
+    # See https://github.com/executablebooks/sphinx-book-theme/issues/592
+    # See https://github.com/NixOS/nixpkgs/pull/187401
     nixpkgs-pydata-sphinx-theme.url = "github:NixOS/nixpkgs?rev=19d31fc041778c7d969b04b18b1e3cb91a804c6b";
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -92,7 +94,7 @@
               (attrs.patches or [])
               ++ [
                 # https://github.com/sphinx-contrib/mscgen/commit/26bc79a8b6e16093411092775d514cda6354ce6e
-                #  small fix for build proble
+                #  small fix for build problem
                 (pkgs.fetchpatch {
                   url = "https://github.com/sphinx-contrib/mscgen/commit/26bc79a8b6e16093411092775d514cda6354ce6e.patch";
                   sha256 = "sqNIn4MFC+6Ai17czQUB8g9CmfHDobDF/jaIgf086AM=";
@@ -107,7 +109,7 @@
         ];
       };
 
-      pdf = pkgs.stdenv.mkDerivation {
+      pdf = pkgs.stdenvNoCC.mkDerivation {
         name = documentProperties.name + "-pdf";
         fullname = documentProperties.name + "-" + version;
         src = self;
@@ -123,7 +125,7 @@
         '';
       };
 
-      epub = pkgs.stdenv.mkDerivation {
+      epub = pkgs.stdenvNoCC.mkDerivation {
         name = documentProperties.name + "-epub";
         fullname = documentProperties.name + "-" + version;
         src = self;
@@ -139,7 +141,7 @@
         '';
       };
 
-      html = pkgs.stdenv.mkDerivation {
+      html = pkgs.stdenvNoCC.mkDerivation {
         name = documentProperties.name + "-html";
         fullname = documentProperties.name + "-" + version;
         src = self;
