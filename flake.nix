@@ -18,7 +18,7 @@
     nixpkgs-pydata-sphinx-theme,
     ...
   } @ inputs:
-    with flake-utils.lib; eachSystem allSystems (system: let
+    flake-utils.lib.eachDefaultSystem (system: let
       version = self.shortRev or self.lastModifiedDate;
 
       overlays = [
@@ -154,6 +154,20 @@
 
         installPhase = "cp -r tmp/html/ $out";
       };
+
+      singlehtml = pkgs.stdenvNoCC.mkDerivation {
+        name = documentProperties.name + "-html";
+        fullname = documentProperties.name + "-" + version;
+        src = self;
+
+        nativeBuildInputs = documentProperties.inputs;
+
+        buildPhase = ''
+          sphinx-build -b singlehtml . tmp
+        '';
+
+        installPhase = "cp -r tmp/ $out";
+      };
     in {
       formatter = pkgs.alejandra;
 
@@ -162,6 +176,7 @@
         html = html;
         pdf = pdf;
         epub = epub;
+        singlehtml = singlehtml;
         default = self.packages.${system}.pdf;
       };
 
